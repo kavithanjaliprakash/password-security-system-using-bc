@@ -7,12 +7,21 @@ class Block {
         this.data = data;
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
+        this.nonce = 0;
 
     }
 
     calculateHash() {
-      return SHA512(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+      return SHA512(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
 
+    }
+
+    mineBlock(difficulty){
+      while(this.hash.substring(0,difficulty)!=Array(difficulty+1).join("0")){
+        this.nonce++;
+        this.hash=this.calculateHash();
+      }
+      console.log("Block Mined:"+this.hash+"\n")
     }
 
 
@@ -21,6 +30,7 @@ class Block {
 class Blockchain {
   constructor() {
     this.chain = [this.createGenesisBlock()];
+    this.difficulty=4;
   }
 
   createGenesisBlock(){
@@ -33,7 +43,8 @@ class Blockchain {
 
   addBlock(newBlock){
     newBlock.previousHash = this.getLatestBlock().hash;
-    newBlock.hash = newBlock.calculateHash();
+    newBlock.mineBlock(this.difficulty);
+    //newBlock.hash = newBlock.calculateHash();
     this.chain.push(newBlock);
   }
 
@@ -60,9 +71,18 @@ class Blockchain {
 
 
 let pwdMgr = new Blockchain();
-pwdMgr.addBlock(new Block(1,"19/01/2020",{username:"barathadhithya29@gmail.com",password:"29061999",website:"www.gmail.com"}));
-pwdMgr.addBlock(new Block(2,"20/01/2020",{username:"barath.svtfoundation@gmail.com",password:"123654",website:"www.gmail.com"}));
 
-console.log('Is Block is valid?' +pwdMgr.isChainValid());
+console.log('Mining Block...1\n');
+pwdMgr.addBlock(new Block(1,"19/01/2020",{username:"barathadhithya29@gmail.com",password:"29061999",website:"www.gmail.com"}));
+
+console.log('Mining Block...2\n');
+pwdMgr.addBlock(new Block(2,"20/01/2020",{username:"barath.svtfoundation@gmail.com",password:"*+*+*+*",website:"www.gmail.com"}));
+
+console.log('Mining Block...3\n');
+pwdMgr.addBlock(new Block(3,"04/03/2020",{username:"barathadhithya29@gmail.com",password:"******",website:"www.facebook.com"}));
+
+
+
+//console.log('Is Block is valid?' +pwdMgr.isChainValid());
 
 console.log(JSON.stringify(pwdMgr,null,4));
