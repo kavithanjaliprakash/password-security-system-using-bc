@@ -83,6 +83,6 @@ pwdMgr.addBlock(new Block(3,"04/03/2020",{username:"barathadhithya29@gmail.com",
 
 
 
-//console.log('Is Block is valid?' +pwdMgr.isChainValid());
+console.log('Is Block is valid?' +pwdMgr.isChainValid());
 
 console.log(JSON.stringify(pwdMgr,null,4));

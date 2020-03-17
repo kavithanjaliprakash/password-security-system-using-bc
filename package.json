@@ -1,7 +1,6 @@
 {
   "name": "bc",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "dependencies": {
     "crypto-js": "^3.1.9-1",
@@ -12,5 +11,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bharath-raj/password-security-system-using-bc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bharath-raj/password-security-system-using-bc/issues"
+  },
+  "homepage": "https://github.com/Bharath-raj/password-security-system-using-bc#readme",
+  "description": ""
 }
