@@ -81,7 +81,8 @@ pwdMgr.addBlock(new Block(2,"20/01/2020",{username:"barath.svtfoundation@gmail.c
 console.log('Mining Block...3\n');
 pwdMgr.addBlock(new Block(3,"04/03/2020",{username:"barathadhithya29@gmail.com",password:"******",website:"www.facebook.com"}));
 
-
+console.log('Mining Block...4\n');
+pwdMgr.addBlock(new Block(4,"17/03/2020",{username:"bthirumurugan@burning-glass.com",password:"******",website:"www.confluence-burning-glass.com"}));
 
 console.log('Is Block is valid?' +pwdMgr.isChainValid());
 
