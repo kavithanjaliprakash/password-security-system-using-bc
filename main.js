@@ -111,7 +111,20 @@ pwdMgr.addBlock(new Block(3,utcDate,{username:"barathadhithya29@gmail.com",passw
 console.log('Mining Block...4\n');
 pwdMgr.addBlock(new Block(4,utcDate,{username:"bthirumurugan@burning-glass.com",password:"******",website:"www.confluence-burning-glass.com"}));
 
+console.log(JSON.stringify(pwdMgr,null,4))
+
 console.log('Is Block is valid?' +pwdMgr.isChainValid());
 
-console.log(JSON.stringify(pwdMgr,null,4))
+
+const fs = require('fs');
+// write to file
+fs.writeFile(`${__dirname}/Blockchain.json`, JSON.stringify(pwdMgr,null,4), (err) => {
+  if (err) {
+    console.log('Error occured, exiting...');
+    process.exit(-1);
+  }
+
+  console.log('Write successful, exiting...');
+  process.exit(0);
+});
 
