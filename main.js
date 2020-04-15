@@ -34,7 +34,7 @@ class Blockchain {
   }
 
   createGenesisBlock(){
-    return new Block(0,'18/01/2020',"Genesis Block","0");
+    return new Block(0,utcDate,"Genesis Block","0");
   }
 
   getLatestBlock(){
@@ -69,21 +69,49 @@ class Blockchain {
 
 }
 
+//function onSubmit(){
+
+  //var username = document.getElementById("username");
+  //var password = document.getElementById("password");
+  //var website = document.getElementById("url");
+//debugger;
+  //var data = {username:'',password:'',website:''};
+//if(username){
+  //data.username=username.value;
+//}
+//if(password){
+  //data.password=password.value;
+//}
+//if(website){
+  //data.website=website.value;
+//console.log('Mining Block...2\n');
+//}
+//let pwdMgr = new Blockchain();
+
+//pwdMgr.addBlock(new Block(1,"15/1/2020",{"username":data.username,"password":data.password,"website":data.website}));
+//console.log(JSON.stringify(pwdMgr));
+
+
+//}
+
 
 let pwdMgr = new Blockchain();
+var dt = new Date();
+var utcDate = dt.toUTCString();
 
 console.log('Mining Block...1\n');
-pwdMgr.addBlock(new Block(1,"19/01/2020",{username:"barathadhithya29@gmail.com",password:"29061999",website:"www.gmail.com"}));
+pwdMgr.addBlock(new Block(1,utcDate,{username:"barathadhithya29@gmail.com",password:"29061999",website:"www.gmail.com"}));
 
 console.log('Mining Block...2\n');
-pwdMgr.addBlock(new Block(2,"20/01/2020",{username:"barath.svtfoundation@gmail.com",password:"*+*+*+*",website:"www.gmail.com"}));
+pwdMgr.addBlock(new Block(2,utcDate,{username:"barath.svtfoundation@gmail.com",password:"*+*+*+*",website:"www.gmail.com"}));
 
 console.log('Mining Block...3\n');
-pwdMgr.addBlock(new Block(3,"04/03/2020",{username:"barathadhithya29@gmail.com",password:"******",website:"www.facebook.com"}));
+pwdMgr.addBlock(new Block(3,utcDate,{username:"barathadhithya29@gmail.com",password:"******",website:"www.facebook.com"}));
 
 console.log('Mining Block...4\n');
-pwdMgr.addBlock(new Block(4,"17/03/2020",{username:"bthirumurugan@burning-glass.com",password:"******",website:"www.confluence-burning-glass.com"}));
+pwdMgr.addBlock(new Block(4,utcDate,{username:"bthirumurugan@burning-glass.com",password:"******",website:"www.confluence-burning-glass.com"}));
 
 console.log('Is Block is valid?' +pwdMgr.isChainValid());
 
-console.log(JSON.stringify(pwdMgr,null,4));
+console.log(JSON.stringify(pwdMgr,null,4))
+
